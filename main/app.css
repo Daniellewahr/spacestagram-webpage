@@ -68,7 +68,8 @@
 }
 
 .apod-text h2{
-    font-size: 2em;
+    font-size: 1.5em;
+    font-weight: 600;
     font-family: 'Poppins', sans-serif;
     color: white;
     text-transform: uppercase;
@@ -80,6 +81,7 @@
     justify-content: center;
     text-align: center;
     font-size: 1em;
+    margin-top: -5px;
 }
   
 .placement {
@@ -107,25 +109,34 @@ h1 {
 
 @media(max-width: 798px) {
 
+    .header {
+        size: 50%;
+    }
+
     .apod {
         margin-left: 0;
         margin-top: 80px;
     }
 
+    .likes-title {
+        font-size: 2em;
+    }
+
     .apod-text h2 {
-        font-size: 1.5em;
+        font-size: 1.1em;
     }
 
     .apod-text h3 {
-        font-size: 0.7em;
+        font-size: 0.8em;
     }
 
     .card {
         margin-top: 10px;
+        margin-bottom: 0;
         max-width: 400px;
         max-height: 550px;
         padding: 0.8rem;
-        padding-bottom: 0.2rem;
+        padding-bottom: 0;
     }
     .card-title {
         font-size: 0.8rem;

@@ -592,10 +592,6 @@ html {
     opacity: 0.15;
 }
 
-.wrapper.active {
-    /* right: 300px; */
-}
-
 @keyframes animStar {
     from {
         transform: translateY(0px);

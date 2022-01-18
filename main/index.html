@@ -31,17 +31,18 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="apod.html">APOD</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Likes</a></li>
+            <li><a href="likes.html">My Likes</a></li>
         </ul>
     </div>  
     <script>
         const menuToggle = document.querySelector('.toggle')
         const showcase = document.querySelector('.showcase')
+        const menu = document.querySelector('.menu')
 
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active')
             showcase.classList.toggle('active')
+            menu.classList.toggle('active')
         })
     </script>
 </body>

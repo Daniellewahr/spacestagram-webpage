@@ -154,6 +154,7 @@
 
 .menu.active {
     right: 0px;
+    z-index: 200;
 }
 
 .menu ul {
@@ -170,6 +171,19 @@
 
 .menu ul li a:hover {
     color: var(--overlay-color);
+}
+
+.btns {
+    display: flex;
+    border: none;
+    background: transparent;
+    margin: 2px;
+    color: gray;
+    font-size: 20px;
+}
+
+.btns i:hover {
+    cursor: pointer;
 }
 
 @media(max-width: 798px) {

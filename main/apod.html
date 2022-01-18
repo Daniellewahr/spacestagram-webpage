@@ -45,7 +45,7 @@
           <div id="stars2"></div>
           <div id="stars3"></div>
         </section>
-        <div class="overlay"></div>
+        <!-- <div class="overlay"></div> -->
         <div class="apod">
             <div class="apod-text">
                 <h2>Astronomy Picture of The (Earth) Day</h2>
@@ -88,14 +88,6 @@
             <li><a href="likes.html">My Likes</a></li>
         </ul>
     </div>  
-
-    <script>
-      const likes = document.querySelector('.like')
-
-      likes.addEventListener('click', () => {
-        like.classList.toggle('active')
-      })
-    </script>
 
     <script>
         const menuToggle = document.querySelector('.toggle')
@@ -141,13 +133,32 @@
         document.getElementById("wrapper-explanation").innerHTML = explanation;
         document.getElementById("wrapper-copyright").innerHTML = copyright;
         document.getElementById("wrapper-hdurl").href = hdurl;
-        document.getElementById("wrapper-date").innerHTML = date;
+        document.getElementById("wrapper-date").innerHTML = date;  // yyyy-mm-dd
+        
+        // check if date is in our likes
+        let likes = localStorage.getItem('likes');
+        if (likes) {
+          likes = likes.split(',');
+        } else {
+          likes = [];
+        }
+        console.log('date', date);
+        console.log('likes', likes);
+        console.log('bool', likes.includes(date));
+        if (likes.includes(date)) {
+          console.log('setting red');
+          const btn2 = document.getElementById('btnh2');
+          btn2.style.color = "red";
+        }
       });
            
     </script>
 
+    <script src="../js/likes.js">
+    </script>
+
     <script>
-      var btn2 = document.getElementById('btnh2');
+      const btn2 = document.getElementById('btnh2');
 
       function toggle1(){
         if(btn2.style.color == "red"){
@@ -157,6 +168,30 @@
           btn2.style.color = "red";
         }
       }
+
+      
+
+      btn2.addEventListener('click', () => {
+        let likes = localStorage.getItem('likes');
+        if (likes) {
+          likes = likes.split(',');
+        } else {
+          likes = [];
+        }
+        // when liking
+
+        console.log(likes);
+        let yourDate = new Date();
+        const offset = yourDate.getTimezoneOffset();
+        yourDate = new Date(yourDate.getTime() - (offset*60*1000));
+        const formattedDate = yourDate.toISOString().split('T')[0];
+        if (!likes.includes(formattedDate)) {
+          likes.push(formattedDate);
+          localStorage.setItem('likes', likes);
+        }
+        // unliking
+
+      });
     </script>
 
     <!-- MDB -->

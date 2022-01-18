@@ -26,11 +26,6 @@
     transition: 0.5s;
 }
 
-.showcase video {
-    height: 100vh;
-}
-
-
 /*space means we're looking for an element*/
 .showcase header {
     position: absolute;
@@ -46,6 +41,7 @@
 }
 
 .showcase video {
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;

@@ -45,11 +45,15 @@
           <div id="stars2"></div>
           <div id="stars3"></div>
         </section>
-        <!-- <div class="overlay"></div> -->
+
         <div class="apod">
             <div class="apod-text">
                 <h2>Astronomy Picture of The (Earth) Day</h2>
                 <h3 class="text-muted">Brought To You by Nasa's API Generator</h3>
+                <!-- <div class="datepicker">
+                  <label for="date">Change date: </label>
+                  <input type="date" id="wrapper-date"> 
+                </div>   -->
             </div>
             <div class="card">
                 <div class="bg-image hover-overlay ripple shadow-1-strong rounded">
@@ -70,22 +74,13 @@
                     </div>
             </div>
         </div>
-        
-        <!-- <div class="text">
-            <h2>Image Sharing</h2>
-            <h3>From The Final Frontier</h3>
-            <p>Brought to you by NASA's Astronomy Picture of the Day (APOD) API. Click the button below
-                for the most recent astronomy pictures of the day.
-            </p>
-            <a href="index.html">Explore</a>
-        </div> -->
     </section>
 
     <div class="menu">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="apod.html">APOD</a></li>
-            <li><a href="likes.html">My Likes</a></li>
+            <!-- <li><a href="likes.html">My Likes</a></li> -->
         </ul>
     </div>  
 
@@ -106,10 +101,10 @@
      <!-- Custom scripts -->
      <script type="text/javascript">
     
-     let queryUrl = "https://api.nasa.gov/planetary/apod?";
-     let queryKey = "api_key=DaFi4M1aSffvFg0EGzfCxWruc6FyhR7wStWMPtxf&"
+    let queryUrl = "https://api.nasa.gov/planetary/apod?";
+    let queryKey = "api_key=DaFi4M1aSffvFg0EGzfCxWruc6FyhR7wStWMPtxf&"
     //  let queryKey = "api_key=yTvAGWVhDAFHLYPbAePGZYJ5q7im7Olz8FEhFDFX";
-     let queryDate = 'date=2022-01-13&';
+    let queryDate = 'date=2022-01-13&';
     //  https://api.nasa.gov/planetary/apod?api_key=yTvAGWVhDAFHLYPbAePGZYJ5q7im7Olz8FEhFDFX
     //  let queryFull = queryUrl + queryKey + queryDate;
     let queryFull = queryUrl + queryKey;
@@ -136,26 +131,34 @@
         document.getElementById("wrapper-date").innerHTML = date;  // yyyy-mm-dd
         
         // check if date is in our likes
-        let likes = localStorage.getItem('likes');
-        if (likes) {
-          likes = likes.split(',');
-        } else {
-          likes = [];
-        }
-        console.log('date', date);
-        console.log('likes', likes);
-        console.log('bool', likes.includes(date));
-        if (likes.includes(date)) {
-          console.log('setting red');
-          const btn2 = document.getElementById('btnh2');
-          btn2.style.color = "red";
-        }
+        // let likes = localStorage.getItem('likes');
+        // if (likes) {
+        //   likes = likes.split(',');
+        // } else {
+        //   likes = [];
+        // }
+        // console.log('date', date);
+        // console.log('likes', likes);
+        // console.log('bool', likes.includes(date));
+        // if (likes.includes(date)) {
+        //   console.log('setting red');
+        //   const btn2 = document.getElementById('btnh2');
+        //   btn2.style.color = "red";
+        // }
       });
+
+      const myDatepicker = document.getElementById("datepicker");
+
+      myDatepicker.addEventListener("", (e) => {
+          nasaRequest();
+        });
+
+    
+
            
     </script>
 
-    <script src="../js/likes.js">
-    </script>
+    <script src="../js/likes.js"></script>
 
     <script>
       const btn2 = document.getElementById('btnh2');
@@ -169,29 +172,31 @@
         }
       }
 
-      
+      // btn2.addEventListener('click', () => {
+      //   let likes = localStorage.getItem('likes');
+      //   if (likes) {
+      //     likes = likes.split(',');
+      //   } else {
+      //     likes = [];
+      //   }
 
-      btn2.addEventListener('click', () => {
-        let likes = localStorage.getItem('likes');
-        if (likes) {
-          likes = likes.split(',');
-        } else {
-          likes = [];
-        }
         // when liking
+        // console.log(likes);
+        // let yourDate = new Date();
+        // const offset = yourDate.getTimezoneOffset();
+        // yourDate = new Date(yourDate.getTime() - (offset*60*1000));
+        // const formattedDate = yourDate.toISOString().split('T')[0];
+        // if (!likes.includes(formattedDate)) {
+        //   likes.push(formattedDate);
+        //   localStorage.setItem('likes', likes);
+        // }
 
-        console.log(likes);
-        let yourDate = new Date();
-        const offset = yourDate.getTimezoneOffset();
-        yourDate = new Date(yourDate.getTime() - (offset*60*1000));
-        const formattedDate = yourDate.toISOString().split('T')[0];
-        if (!likes.includes(formattedDate)) {
-          likes.push(formattedDate);
-          localStorage.setItem('likes', likes);
-        }
         // unliking
+        // if (btn2.style.color == 'gray'){
+        //   console.log('hi');
+        // }
 
-      });
+      // });
     </script>
 
     <!-- MDB -->
